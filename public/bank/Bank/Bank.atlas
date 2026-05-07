@@ -1,0 +1,34 @@
+
+Bank.png
+size: 1105,796
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bank_base
+  rotate: false
+  xy: 2, 2
+  size: 910, 792
+  orig: 910, 792
+  offset: 0, 0
+  index: -1
+Blik_02
+  rotate: true
+  xy: 914, 282
+  size: 512, 189
+  orig: 514, 207
+  offset: 1, 9
+  index: -1
+Flag
+  rotate: false
+  xy: 914, 68
+  size: 50, 48
+  orig: 50, 49
+  offset: 0, 0
+  index: -1
+spark
+  rotate: false
+  xy: 914, 118
+  size: 162, 162
+  orig: 162, 162
+  offset: 0, 0
+  index: -1

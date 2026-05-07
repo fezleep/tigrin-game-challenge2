@@ -1,0 +1,384 @@
+
+Super_Mega_Win.png
+size: 2017,1190
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bars_no_jump
+  rotate: false
+  xy: 1316, 636
+  size: 348, 180
+  orig: 353, 183
+  offset: 1, 1
+  index: -1
+Bars_no_jump_1
+  rotate: false
+  xy: 1656, 246
+  size: 177, 110
+  orig: 180, 112
+  offset: 1, 1
+  index: -1
+Blik_02
+  rotate: false
+  xy: 669, 353
+  size: 512, 189
+  orig: 514, 207
+  offset: 1, 9
+  index: -1
+Layer 2
+  rotate: false
+  xy: 1557, 29
+  size: 106, 95
+  orig: 108, 100
+  offset: 1, 1
+  index: -1
+Sper_dollars_in_bag
+  rotate: false
+  xy: 1666, 545
+  size: 199, 119
+  orig: 206, 121
+  offset: 2, 1
+  index: -1
+Super_BG
+  rotate: false
+  xy: 2, 102
+  size: 665, 230
+  orig: 667, 232
+  offset: 1, 1
+  index: -1
+Super_Bag
+  rotate: false
+  xy: 1183, 290
+  size: 263, 252
+  orig: 293, 264
+  offset: 22, 9
+  index: -1
+Super_Frame_Bold
+  rotate: false
+  xy: 2, 334
+  size: 665, 232
+  orig: 667, 234
+  offset: 1, 1
+  index: -1
+Super_Mega_Win_logo
+  rotate: false
+  xy: 669, 164
+  size: 511, 187
+  orig: 514, 189
+  offset: 1, 1
+  index: -1
+Super_Mega_bolts
+  rotate: false
+  xy: 695, 544
+  size: 650, 54
+  orig: 652, 66
+  offset: 1, 1
+  index: -1
+Super_blue wire
+  rotate: false
+  xy: 780, 1117
+  size: 739, 71
+  orig: 741, 73
+  offset: 1, 1
+  index: -1
+Super_coins_1
+  rotate: false
+  xy: 1182, 199
+  size: 263, 89
+  orig: 265, 91
+  offset: 1, 1
+  index: -1
+Super_coins_2
+  rotate: false
+  xy: 1521, 1025
+  size: 388, 163
+  orig: 390, 165
+  offset: 1, 1
+  index: -1
+Super_coins_3
+  rotate: false
+  xy: 1316, 818
+  size: 380, 112
+  orig: 382, 114
+  offset: 1, 1
+  index: -1
+Super_coins_4
+  rotate: false
+  xy: 1666, 666
+  size: 309, 78
+  orig: 311, 80
+  offset: 1, 1
+  index: -1
+Super_coins_in_bag
+  rotate: true
+  xy: 1250, 671
+  size: 118, 59
+  orig: 120, 62
+  offset: 1, 2
+  index: -1
+Super_dollars_1
+  rotate: false
+  xy: 1447, 142
+  size: 113, 75
+  orig: 115, 78
+  offset: 1, 2
+  index: -1
+Super_dollars_2
+  rotate: false
+  xy: 1843, 291
+  size: 132, 89
+  orig: 134, 94
+  offset: 1, 1
+  index: -1
+Super_dollars_3
+  rotate: false
+  xy: 1656, 133
+  size: 149, 111
+  orig: 151, 115
+  offset: 1, 1
+  index: -1
+Super_dollars_4
+  rotate: false
+  xy: 1316, 937
+  size: 112, 83
+  orig: 114, 87
+  offset: 1, 2
+  index: -1
+Super_dollars_5
+  rotate: true
+  xy: 1911, 1041
+  size: 147, 99
+  orig: 149, 105
+  offset: 1, 1
+  index: -1
+Super_dollars_front
+  rotate: false
+  xy: 1698, 746
+  size: 312, 184
+  orig: 322, 240
+  offset: 9, 36
+  index: -1
+Super_frame
+  rotate: false
+  xy: 2, 797
+  size: 691, 232
+  orig: 693, 234
+  offset: 1, 1
+  index: -1
+Super_glow
+  rotate: false
+  xy: 695, 791
+  size: 619, 229
+  orig: 671, 241
+  offset: 7, 6
+  index: -1
+Super_gold_bars_1
+  rotate: false
+  xy: 695, 600
+  size: 553, 189
+  orig: 557, 191
+  offset: 1, 1
+  index: -1
+Super_gold_bars_3
+  rotate: false
+  xy: 1434, 932
+  size: 533, 91
+  orig: 536, 93
+  offset: 2, 1
+  index: -1
+Super_gold_bars_4
+  rotate: true
+  xy: 1773, 21
+  size: 110, 78
+  orig: 117, 81
+  offset: 6, 1
+  index: -1
+Super_green_wires
+  rotate: false
+  xy: 780, 1078
+  size: 739, 37
+  orig: 743, 39
+  offset: 2, 1
+  index: -1
+Super_metal_1
+  rotate: false
+  xy: 2, 568
+  size: 691, 227
+  orig: 693, 230
+  offset: 1, 1
+  index: -1
+Super_metal_2
+  rotate: false
+  xy: 2, 1031
+  size: 776, 157
+  orig: 778, 160
+  offset: 1, 2
+  index: -1
+Super_metal_3
+  rotate: false
+  xy: 669, 122
+  size: 544, 40
+  orig: 550, 42
+  offset: 3, 1
+  index: -1
+Super_red_wire
+  rotate: false
+  xy: 2, 2
+  size: 679, 98
+  orig: 681, 101
+  offset: 1, 1
+  index: -1
+Super_text
+  rotate: false
+  xy: 683, 20
+  size: 573, 100
+  orig: 575, 102
+  offset: 1, 1
+  index: -1
+Super_yellow_wire
+  rotate: false
+  xy: 1665, 33
+  size: 106, 98
+  orig: 108, 100
+  offset: 1, 1
+  index: -1
+bolt
+  rotate: false
+  xy: 780, 1022
+  size: 652, 54
+  orig: 655, 56
+  offset: 1, 1
+  index: -1
+coin_jump
+  rotate: false
+  xy: 1665, 2
+  size: 34, 29
+  orig: 36, 31
+  offset: 1, 1
+  index: -1
+coin_jump2
+  rotate: true
+  xy: 1182, 164
+  size: 33, 28
+  orig: 35, 30
+  offset: 1, 1
+  index: -1
+coin_jump3
+  rotate: true
+  xy: 1666, 784
+  size: 32, 12
+  orig: 34, 14
+  offset: 1, 1
+  index: -1
+coin_jump_4
+  rotate: true
+  xy: 1212, 164
+  size: 33, 18
+  orig: 35, 20
+  offset: 1, 1
+  index: -1
+star/1
+  rotate: false
+  xy: 1853, 8
+  size: 76, 75
+  orig: 254, 257
+  offset: 89, 91
+  index: -1
+star/2
+  rotate: false
+  xy: 1853, 8
+  size: 76, 75
+  orig: 254, 257
+  offset: 89, 91
+  index: -1
+star/10
+  rotate: false
+  xy: 1448, 427
+  size: 206, 207
+  orig: 254, 257
+  offset: 25, 24
+  index: -1
+star/11
+  rotate: false
+  xy: 1656, 358
+  size: 185, 185
+  orig: 254, 257
+  offset: 35, 35
+  index: -1
+star/12
+  rotate: false
+  xy: 1843, 382
+  size: 135, 134
+  orig: 254, 257
+  offset: 60, 61
+  index: -1
+star/13
+  rotate: false
+  xy: 1853, 85
+  size: 79, 75
+  orig: 254, 257
+  offset: 88, 91
+  index: -1
+star/14
+  rotate: false
+  xy: 1853, 85
+  size: 79, 75
+  orig: 254, 257
+  offset: 88, 91
+  index: -1
+star/15
+  rotate: false
+  xy: 1434, 1034
+  size: 44, 42
+  orig: 254, 257
+  offset: 105, 107
+  index: -1
+star/3
+  rotate: false
+  xy: 1562, 126
+  size: 92, 91
+  orig: 254, 257
+  offset: 81, 83
+  index: -1
+star/4
+  rotate: false
+  xy: 1445, 31
+  size: 110, 109
+  orig: 254, 257
+  offset: 72, 74
+  index: -1
+star/5
+  rotate: false
+  xy: 1835, 162
+  size: 130, 127
+  orig: 254, 257
+  offset: 62, 65
+  index: -1
+star/6
+  rotate: false
+  xy: 1867, 518
+  size: 148, 146
+  orig: 254, 257
+  offset: 53, 55
+  index: -1
+star/7
+  rotate: true
+  xy: 1258, 13
+  size: 184, 185
+  orig: 254, 257
+  offset: 34, 35
+  index: -1
+star/8
+  rotate: true
+  xy: 1258, 13
+  size: 184, 185
+  orig: 254, 257
+  offset: 34, 35
+  index: -1
+star/9
+  rotate: false
+  xy: 1448, 219
+  size: 206, 206
+  orig: 254, 257
+  offset: 23, 25
+  index: -1

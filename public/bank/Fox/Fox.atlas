@@ -1,0 +1,221 @@
+
+Fox.png
+size: 1955,1695
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ARM
+  rotate: false
+  xy: 550, 515
+  size: 466, 458
+  orig: 466, 458
+  offset: 0, 0
+  index: -1
+ARM 2
+  rotate: false
+  xy: 2, 694
+  size: 546, 405
+  orig: 546, 405
+  offset: 0, 0
+  index: -1
+BAG_part
+  rotate: false
+  xy: 1148, 2
+  size: 763, 503
+  orig: 868, 667
+  offset: 1, 163
+  index: -1
+BEARD
+  rotate: true
+  xy: 575, 975
+  size: 399, 503
+  orig: 573, 1062
+  offset: 0, 0
+  index: -1
+BELT
+  rotate: false
+  xy: 2, 1388
+  size: 585, 196
+  orig: 585, 196
+  offset: 0, 0
+  index: -1
+Bag_belt
+  rotate: false
+  xy: 418, 1586
+  size: 241, 107
+  orig: 243, 109
+  offset: 1, 1
+  index: -1
+Blink_back
+  rotate: true
+  xy: 135, 1620
+  size: 73, 77
+  orig: 75, 79
+  offset: 1, 1
+  index: -1
+Blink_front
+  rotate: false
+  xy: 802, 1576
+  size: 331, 117
+  orig: 333, 120
+  offset: 1, 2
+  index: -1
+CLAW_L
+  rotate: false
+  xy: 1080, 893
+  size: 603, 341
+  orig: 603, 341
+  offset: 0, 0
+  index: -1
+CLAW_R
+  rotate: false
+  xy: 1412, 1516
+  size: 255, 177
+  orig: 455, 323
+  offset: 0, 0
+  index: -1
+Eye_color_front
+  rotate: true
+  xy: 214, 1615
+  size: 78, 82
+  orig: 80, 84
+  offset: 1, 1
+  index: -1
+GOLD
+  rotate: false
+  xy: 1018, 507
+  size: 587, 384
+  orig: 695, 386
+  offset: 4, 1
+  index: -1
+HAND_L
+  rotate: false
+  xy: 2, 212
+  size: 490, 480
+  orig: 499, 514
+  offset: 9, 0
+  index: -1
+HAND_R
+  rotate: true
+  xy: 494, 36
+  size: 469, 652
+  orig: 809, 652
+  offset: 0, 0
+  index: -1
+HAT
+  rotate: true
+  xy: 1669, 1287
+  size: 406, 284
+  orig: 442, 309
+  offset: 36, 1
+  index: -1
+PAW_L
+  rotate: false
+  xy: 2, 1101
+  size: 571, 285
+  orig: 603, 341
+  offset: 17, 51
+  index: -1
+PAW_R
+  rotate: false
+  xy: 1115, 1236
+  size: 426, 278
+  orig: 455, 323
+  offset: 0, 6
+  index: -1
+White_eye_back copy
+  rotate: true
+  xy: 56, 1620
+  size: 73, 77
+  orig: 75, 79
+  offset: 1, 1
+  index: -1
+eye_color_back
+  rotate: true
+  xy: 2, 1643
+  size: 50, 52
+  orig: 52, 54
+  offset: 1, 1
+  index: -1
+finger
+  rotate: true
+  xy: 298, 1596
+  size: 97, 118
+  orig: 99, 120
+  offset: 1, 1
+  index: -1
+money
+  rotate: false
+  xy: 589, 1376
+  size: 524, 198
+  orig: 526, 200
+  offset: 1, 1
+  index: -1
+money_fly
+  rotate: false
+  xy: 1135, 1536
+  size: 275, 157
+  orig: 277, 159
+  offset: 1, 1
+  index: -1
+white_eye_front copy
+  rotate: false
+  xy: 661, 1584
+  size: 139, 109
+  orig: 141, 111
+  offset: 1, 1
+  index: -1
+
+Fox2.png
+size: 1799,1541
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BAG
+  rotate: false
+  xy: 2, 41
+  size: 848, 832
+  orig: 869, 834
+  offset: 1, 1
+  index: -1
+HEAD
+  rotate: true
+  xy: 852, 2
+  size: 834, 872
+  orig: 1757, 2637
+  offset: 416, 1765
+  index: -1
+JEANS
+  rotate: true
+  xy: 983, 838
+  size: 701, 814
+  orig: 1209, 1091
+  offset: 178, 277
+  index: -1
+TAIL
+  rotate: false
+  xy: 2, 875
+  size: 979, 664
+  orig: 983, 664
+  offset: 4, 0
+  index: -1
+
+Fox3.png
+size: 2000,1119
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+BODY
+  rotate: false
+  xy: 1131, 110
+  size: 867, 1007
+  orig: 891, 1641
+  offset: 17, 75
+  index: -1
+SCRAP
+  rotate: true
+  xy: 2, 2
+  size: 1115, 1127
+  orig: 1117, 1132
+  offset: 1, 1
+  index: -1

@@ -1,0 +1,661 @@
+
+Dynamite.png
+size: 2046,1901
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+00_01_time
+  rotate: false
+  xy: 226, 1814
+  size: 88, 85
+  orig: 91, 87
+  offset: 2, 1
+  index: -1
+00_02_time
+  rotate: false
+  xy: 144, 1821
+  size: 80, 78
+  orig: 83, 80
+  offset: 1, 1
+  index: -1
+1/искры футаж_00002
+  rotate: false
+  xy: 1570, 2
+  size: 463, 370
+  orig: 1280, 720
+  offset: 448, 234
+  index: -1
+1/искры футаж_00006
+  rotate: true
+  xy: 1627, 1075
+  size: 298, 335
+  orig: 1280, 720
+  offset: 542, 219
+  index: -1
+1/искры футаж_00007
+  rotate: false
+  xy: 1134, 90
+  size: 434, 370
+  orig: 1280, 720
+  offset: 462, 127
+  index: -1
+1/искры футаж_00012
+  rotate: false
+  xy: 2, 1217
+  size: 456, 258
+  orig: 1280, 720
+  offset: 479, 263
+  index: -1
+1/искры футаж_00014
+  rotate: false
+  xy: 1196, 808
+  size: 424, 326
+  orig: 1280, 720
+  offset: 462, 186
+  index: -1
+1/искры футаж_00020
+  rotate: false
+  xy: 1239, 1691
+  size: 262, 208
+  orig: 1280, 720
+  offset: 630, 231
+  index: -1
+1/искры футаж_00021
+  rotate: false
+  xy: 1025, 1706
+  size: 212, 193
+  orig: 1280, 720
+  offset: 582, 300
+  index: -1
+1/искры футаж_00022
+  rotate: false
+  xy: 460, 1201
+  size: 361, 263
+  orig: 1280, 720
+  offset: 475, 243
+  index: -1
+1/искры футаж_00023
+  rotate: false
+  xy: 805, 558
+  size: 356, 344
+  orig: 1280, 720
+  offset: 515, 184
+  index: -1
+1/искры футаж_00024
+  rotate: true
+  xy: 2, 905
+  size: 310, 357
+  orig: 1280, 720
+  offset: 503, 144
+  index: -1
+1/искры футаж_00025
+  rotate: true
+  xy: 1503, 1682
+  size: 217, 345
+  orig: 1280, 720
+  offset: 591, 186
+  index: -1
+1/искры футаж_00026
+  rotate: false
+  xy: 2, 1572
+  size: 278, 240
+  orig: 1280, 720
+  offset: 516, 296
+  index: -1
+1/искры футаж_00027
+  rotate: false
+  xy: 282, 1477
+  size: 319, 231
+  orig: 1280, 720
+  offset: 513, 293
+  index: -1
+1/искры футаж_00028
+  rotate: false
+  xy: 1622, 734
+  size: 353, 339
+  orig: 1280, 720
+  offset: 503, 245
+  index: -1
+1/искры футаж_00029
+  rotate: false
+  xy: 1733, 1375
+  size: 311, 305
+  orig: 1280, 720
+  offset: 552, 234
+  index: -1
+1/искры футаж_00033
+  rotate: true
+  xy: 603, 1466
+  size: 242, 409
+  orig: 1280, 720
+  offset: 614, 139
+  index: -1
+1/искры футаж_00034
+  rotate: true
+  xy: 1014, 1445
+  size: 244, 361
+  orig: 1280, 720
+  offset: 614, 221
+  index: -1
+1/искры футаж_00035
+  rotate: true
+  xy: 2, 206
+  size: 360, 368
+  orig: 1280, 720
+  offset: 508, 228
+  index: -1
+1/искры футаж_00036
+  rotate: true
+  xy: 823, 1177
+  size: 266, 452
+  orig: 1280, 720
+  offset: 585, 106
+  index: -1
+1/искры футаж_00037
+  rotate: false
+  xy: 746, 177
+  size: 386, 379
+  orig: 1280, 720
+  offset: 532, 261
+  index: -1
+1/искры футаж_00039
+  rotate: true
+  xy: 372, 197
+  size: 369, 372
+  orig: 1280, 720
+  offset: 516, 177
+  index: -1
+1/искры футаж_00046
+  rotate: false
+  xy: 2, 568
+  size: 801, 334
+  orig: 1280, 720
+  offset: 382, 224
+  index: -1
+1/искры футаж_00049
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00016
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00017
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00018
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00019
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00020
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00021
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00022
+  rotate: false
+  xy: 2, 1898
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+Blik_02
+  rotate: false
+  xy: 511, 1710
+  size: 512, 189
+  orig: 514, 207
+  offset: 1, 9
+  index: -1
+Explosion_1/videoplayback (1) 26_00015
+  rotate: false
+  xy: 361, 904
+  size: 833, 271
+  orig: 4096, 2304
+  offset: 1795, 1089
+  index: -1
+Time
+  rotate: false
+  xy: 1584, 374
+  size: 389, 358
+  orig: 458, 391
+  offset: 5, 1
+  index: -1
+Time_shadow
+  rotate: true
+  xy: 1277, 1136
+  size: 295, 348
+  orig: 464, 371
+  offset: 4, 1
+  index: -1
+belt_1_detail
+  rotate: true
+  xy: 1163, 462
+  size: 344, 419
+  orig: 346, 421
+  offset: 1, 1
+  index: -1
+belt_2_detail
+  rotate: true
+  xy: 5, 1822
+  size: 77, 137
+  orig: 80, 139
+  offset: 2, 1
+  index: -1
+ropes
+  rotate: true
+  xy: 1377, 1433
+  size: 247, 354
+  orig: 249, 356
+  offset: 1, 1
+  index: -1
+wires
+  rotate: false
+  xy: 316, 1761
+  size: 193, 138
+  orig: 213, 146
+  offset: 1, 6
+  index: -1
+
+Dynamite2.png
+size: 2035,1716
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1/искры футаж_00000
+  rotate: true
+  xy: 1362, 490
+  size: 423, 476
+  orig: 1280, 720
+  offset: 494, 212
+  index: -1
+1/искры футаж_00004
+  rotate: false
+  xy: 2, 1343
+  size: 515, 371
+  orig: 1280, 720
+  offset: 439, 153
+  index: -1
+1/искры футаж_00005
+  rotate: false
+  xy: 1348, 1318
+  size: 410, 396
+  orig: 1280, 720
+  offset: 496, 139
+  index: -1
+1/искры футаж_00008
+  rotate: false
+  xy: 1064, 26
+  size: 504, 462
+  orig: 1280, 720
+  offset: 488, 140
+  index: -1
+1/искры футаж_00009
+  rotate: true
+  xy: 1570, 2
+  size: 486, 463
+  orig: 1280, 720
+  offset: 480, 140
+  index: -1
+1/искры футаж_00010
+  rotate: true
+  xy: 531, 48
+  size: 441, 531
+  orig: 1280, 720
+  offset: 477, 0
+  index: -1
+1/искры футаж_00011
+  rotate: true
+  xy: 2, 78
+  size: 435, 527
+  orig: 1280, 720
+  offset: 478, 1
+  index: -1
+1/искры футаж_00013
+  rotate: true
+  xy: 2, 528
+  size: 406, 417
+  orig: 1280, 720
+  offset: 553, 87
+  index: -1
+1/искры футаж_00018
+  rotate: false
+  xy: 1021, 915
+  size: 756, 401
+  orig: 1280, 720
+  offset: 173, 130
+  index: -1
+1/искры футаж_00019
+  rotate: true
+  xy: 502, 924
+  size: 396, 517
+  orig: 1280, 720
+  offset: 550, 81
+  index: -1
+1/искры футаж_00038
+  rotate: true
+  xy: 421, 515
+  size: 407, 427
+  orig: 1280, 720
+  offset: 479, 208
+  index: -1
+1/искры футаж_00040
+  rotate: true
+  xy: 2, 936
+  size: 405, 498
+  orig: 1280, 720
+  offset: 464, 187
+  index: -1
+1/искры футаж_00042
+  rotate: false
+  xy: 850, 491
+  size: 510, 422
+  orig: 1280, 720
+  offset: 472, 150
+  index: -1
+belt_1
+  rotate: false
+  xy: 519, 1327
+  size: 412, 387
+  orig: 414, 389
+  offset: 1, 1
+  index: -1
+belt_2
+  rotate: false
+  xy: 933, 1322
+  size: 413, 392
+  orig: 417, 395
+  offset: 2, 2
+  index: -1
+
+Dynamite3.png
+size: 1994,1563
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1/искры футаж_00001
+  rotate: false
+  xy: 2, 606
+  size: 568, 484
+  orig: 1280, 720
+  offset: 448, 236
+  index: -1
+1/искры футаж_00003
+  rotate: false
+  xy: 1489, 1085
+  size: 498, 476
+  orig: 1280, 720
+  offset: 451, 182
+  index: -1
+1/искры футаж_00015
+  rotate: true
+  xy: 1001, 1089
+  size: 472, 486
+  orig: 1280, 720
+  offset: 424, 107
+  index: -1
+1/искры футаж_00030
+  rotate: true
+  xy: 505, 1092
+  size: 469, 494
+  orig: 1280, 720
+  offset: 473, 145
+  index: -1
+1/искры футаж_00041
+  rotate: false
+  xy: 2, 1098
+  size: 501, 463
+  orig: 1280, 720
+  offset: 475, 181
+  index: -1
+1/искры футаж_00043
+  rotate: false
+  xy: 2, 18
+  size: 604, 554
+  orig: 1280, 720
+  offset: 324, 86
+  index: -1
+1/искры футаж_00047
+  rotate: false
+  xy: 608, 14
+  size: 745, 558
+  orig: 1280, 720
+  offset: 368, 122
+  index: -1
+1/искры футаж_00048
+  rotate: true
+  xy: 1355, 2
+  size: 570, 637
+  orig: 1280, 720
+  offset: 315, 61
+  index: -1
+Explosion_1/videoplayback (1) 26_00014
+  rotate: false
+  xy: 572, 574
+  size: 939, 509
+  orig: 4096, 2304
+  offset: 1774, 998
+  index: -1
+
+Dynamite4.png
+size: 1583,1575
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Explosion_1/videoplayback (1) 26_00001
+  rotate: false
+  xy: 2, 2
+  size: 1579, 1571
+  orig: 4096, 2304
+  offset: 1295, 366
+  index: -1
+
+Dynamite5.png
+size: 1894,1909
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1/искры футаж_00016
+  rotate: true
+  xy: 2, 1331
+  size: 576, 579
+  orig: 1280, 720
+  offset: 368, 67
+  index: -1
+1/искры футаж_00017
+  rotate: false
+  xy: 729, 686
+  size: 762, 622
+  orig: 1280, 720
+  offset: 225, 0
+  index: -1
+1/искры футаж_00031
+  rotate: true
+  xy: 1225, 1310
+  size: 597, 667
+  orig: 1280, 720
+  offset: 520, 0
+  index: -1
+1/искры футаж_00032
+  rotate: false
+  xy: 2, 728
+  size: 725, 599
+  orig: 1280, 720
+  offset: 555, 112
+  index: -1
+1/искры футаж_00044
+  rotate: false
+  xy: 583, 1329
+  size: 640, 578
+  orig: 1280, 720
+  offset: 346, 126
+  index: -1
+1/искры футаж_00045
+  rotate: true
+  xy: 2, 85
+  size: 641, 720
+  orig: 1280, 720
+  offset: 329, 0
+  index: -1
+Explosion_1/videoplayback (1) 26_00000
+  rotate: true
+  xy: 724, 2
+  size: 682, 684
+  orig: 4096, 2304
+  offset: 1701, 818
+  index: -1
+
+Dynamite6.png
+size: 1854,1791
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Dynamite
+  rotate: true
+  xy: 2, 1038
+  size: 751, 1058
+  orig: 854, 1086
+  offset: 33, 21
+  index: -1
+Explosion_1/videoplayback (1) 26_00002
+  rotate: true
+  xy: 2, 2
+  size: 1034, 1035
+  orig: 4096, 2304
+  offset: 1553, 622
+  index: -1
+Explosion_1/videoplayback (1) 26_00013
+  rotate: true
+  xy: 1062, 744
+  size: 1045, 790
+  orig: 4096, 2304
+  offset: 1699, 801
+  index: -1
+
+Dynamite7.png
+size: 1224,2007
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Explosion_1/videoplayback (1) 26_00006
+  rotate: false
+  xy: 2, 998
+  size: 1220, 1007
+  orig: 4096, 2304
+  offset: 1507, 678
+  index: -1
+Explosion_1/videoplayback (1) 26_00007
+  rotate: false
+  xy: 2, 2
+  size: 1218, 994
+  orig: 4096, 2304
+  offset: 1521, 684
+  index: -1
+
+Dynamite8.png
+size: 2032,1853
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Explosion_1/videoplayback (1) 26_00008
+  rotate: false
+  xy: 2, 2
+  size: 1197, 967
+  orig: 4096, 2304
+  offset: 1556, 695
+  index: -1
+Explosion_1/videoplayback (1) 26_00011
+  rotate: false
+  xy: 2, 971
+  size: 1198, 880
+  orig: 4096, 2304
+  offset: 1576, 740
+  index: -1
+Explosion_1/videoplayback (1) 26_00012
+  rotate: true
+  xy: 1202, 714
+  size: 1137, 828
+  orig: 4096, 2304
+  offset: 1625, 781
+  index: -1
+
+Dynamite9.png
+size: 1200,1855
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Explosion_1/videoplayback (1) 26_00009
+  rotate: false
+  xy: 2, 2
+  size: 1187, 936
+  orig: 4096, 2304
+  offset: 1572, 703
+  index: -1
+Explosion_1/videoplayback (1) 26_00010
+  rotate: false
+  xy: 2, 940
+  size: 1196, 913
+  orig: 4096, 2304
+  offset: 1575, 711
+  index: -1
+
+Dynamite10.png
+size: 1189,1981
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Explosion_1/videoplayback (1) 26_00003
+  rotate: false
+  xy: 2, 1005
+  size: 1170, 974
+  orig: 4096, 2304
+  offset: 1461, 677
+  index: -1
+Explosion_1/videoplayback (1) 26_00004
+  rotate: false
+  xy: 2, 2
+  size: 1185, 1001
+  orig: 4096, 2304
+  offset: 1491, 672
+  index: -1
+
+Dynamite11.png
+size: 1199,1017
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Explosion_1/videoplayback (1) 26_00005
+  rotate: false
+  xy: 2, 2
+  size: 1195, 1013
+  orig: 4096, 2304
+  offset: 1509, 672
+  index: -1
