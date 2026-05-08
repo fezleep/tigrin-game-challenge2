@@ -107,30 +107,36 @@ popup.visible = false
 popup.eventMode = 'static'
 uiLayer.addChild(popup)
 
+
 const popupOverlay = new PIXI.Graphics()
+
 const popupBox = new PIXI.Graphics()
 
 const popupTitle = makeText('BIG WIN', 66, 0xffc247)
 popupTitle.anchor.set(0.5)
 popupTitle.y = -65
 
+
 const popupValue = makeText('$0', 56, 0x00ff66)
 popupValue.anchor.set(0.5)
 popupValue.y = 20
+
 
 const popupHint = new PIXI.Text('click to continue', {
   fontFamily: 'Arial',
   fontSize: 16,
   fill: 0xffffff,
 })
+
 popupHint.anchor.set(0.5)
 popupHint.y = 105
-
 popup.addChild(popupOverlay, popupBox, popupTitle, popupValue, popupHint)
-
 popup.on('pointertap', () => {
+
   popup.visible = false
+
 })
+
 
 function makeText(text, size, color) {
   return new PIXI.Text(text, {
@@ -142,9 +148,11 @@ function makeText(text, size, color) {
   })
 }
 
+
 function randomSymbol() {
   return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)]
 }
+
 
 async function loadAssets() {
   for (const symbol of SYMBOLS) {
@@ -154,9 +162,11 @@ async function loadAssets() {
   assets.Fox = await PIXI.Assets.load('/bank/Fox/Fox.json')
 }
 
+
 function getSpineData(resource) {
   return resource.spineData || resource
 }
+
 
 function createSpineSymbol(symbolConfig) {
   const spine = new Spine(getSpineData(assets[symbolConfig.name]))
@@ -168,6 +178,7 @@ function createSpineSymbol(symbolConfig) {
 
   return spine
 }
+
 
 function drawBackground() {
   const w = window.innerWidth
@@ -191,6 +202,7 @@ function drawBackground() {
   glow.drawCircle(w * 0.18, h * 0.35, Math.min(w, h) * 0.3)
   glow.endFill()
 }
+
 
 function drawBoard() {
   boardBg.clear()
@@ -243,6 +255,7 @@ function drawBoard() {
   }
 }
 
+
 function clearSymbols() {
   for (const tile of tiles) {
     if (tile.parent) tile.parent.removeChild(tile)
@@ -251,6 +264,7 @@ function clearSymbols() {
 
   tiles = []
 }
+
 
 function buildGrid() {
   clearSymbols()
@@ -269,12 +283,14 @@ function buildGrid() {
   }
 }
 
+
 function createFox() {
   fox = new Spine(getSpineData(assets.Fox))
   fox.state.setAnimation(0, 'Idle', true)
   fox.scale.set(0.115)
   gameLayer.addChild(fox)
 }
+
 
 function drawHud() {
   hudBg.clear()
@@ -291,6 +307,7 @@ function drawHud() {
   hudBg.endFill()
 }
 
+
 function drawSpinButton(enabled = true) {
   spinBg.clear()
 
@@ -305,12 +322,14 @@ function drawSpinButton(enabled = true) {
   spinBg.drawCircle(0, 0, 48)
 }
 
+
 function updateHud() {
   balanceText.text = `$${balance}`
   betText.text = `$${bet}`
   winText.text = `$${win}`
   winText.style.fill = win > 0 ? 0x00ff66 : 0xd71920
 }
+
 
 function drawPopup() {
   popupOverlay.clear()
@@ -329,6 +348,8 @@ function drawPopup() {
   popupBox.lineStyle(3, 0xffc247, 0.8)
   popupBox.drawRoundedRect(-260, -140, 520, 280, 24)
 }
+
+
 
 function showPopup(title, value, isWin) {
   popupTitle.text = title
@@ -357,6 +378,8 @@ function showPopup(title, value, isWin) {
 
   animate()
 }
+
+
 
 function createExplosion(x, y) {
   const particles = []
@@ -418,6 +441,7 @@ function createExplosion(x, y) {
   tick()
 }
 
+
 function explodeTiles(count = 5) {
   return new Promise((resolve) => {
     const selected = [...tiles].sort(() => Math.random() - 0.5).slice(0, count)
@@ -454,6 +478,7 @@ function explodeTiles(count = 5) {
   })
 }
 
+
 async function spin() {
   if (spinning) return
 
@@ -478,6 +503,7 @@ async function spin() {
     }, index * 12)
   })
 
+ 
   await wait(420)
 
   buildGrid()
@@ -527,11 +553,14 @@ async function spin() {
   drawSpinButton(true)
 }
 
+
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+
 spinButton.on('pointertap', spin)
+
 
 function layout() {
   const w = window.innerWidth
@@ -568,6 +597,7 @@ function layout() {
   }
 }
 
+
 async function init() {
   drawBackground()
   drawBoard()
@@ -598,5 +628,6 @@ async function init() {
     spinButton.rotation = Math.sin(time * 0.003) * 0.025
   })
 }
+
 
 init()
