@@ -1,3 +1,4 @@
+// core rendering + spine animation support
 import * as PIXI from 'pixi.js'
 import { Spine } from 'pixi-spine'
 
@@ -9,6 +10,7 @@ const app = new PIXI.Application({
 
 document.getElementById('app').appendChild(app.view)
 
+// slot grid configuration
 const COLS = 5
 const ROWS = 4
 const SYMBOL_SIZE = 130
@@ -17,6 +19,7 @@ const GAP = 10
 const BOARD_W = COLS * SYMBOL_SIZE + (COLS - 1) * GAP
 const BOARD_H = ROWS * SYMBOL_SIZE + (ROWS - 1) * GAP
 
+// spine assets used as slot symbols
 const SYMBOLS = [
   { name: 'Bank', path: '/bank/Bank/Bank.json', anim: 'Bank', scale: 0.105 },
   { name: 'Safe', path: '/bank/Safe/Safe.json', anim: 'animation', scale: 0.145 },
@@ -32,6 +35,7 @@ let win = 0
 let spinning = false
 let fox = null
 
+// main rendering layers
 const root = new PIXI.Container()
 const bgLayer = new PIXI.Container()
 const gameLayer = new PIXI.Container()
@@ -102,6 +106,7 @@ const spinText = makeText('SPIN', 28, 0xffffff)
 spinText.anchor.set(0.5)
 spinButton.addChild(spinText)
 
+// win / lose modal
 const popup = new PIXI.Container()
 popup.visible = false
 popup.eventMode = 'static'
@@ -153,7 +158,7 @@ function randomSymbol() {
   return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)]
 }
 
-
+// preload all spine assets before rendering the game
 async function loadAssets() {
   for (const symbol of SYMBOLS) {
     assets[symbol.name] = await PIXI.Assets.load(symbol.path)
@@ -265,7 +270,7 @@ function clearSymbols() {
   tiles = []
 }
 
-
+// creates and positions all visible slot symbols
 function buildGrid() {
   clearSymbols()
 
@@ -441,7 +446,7 @@ function createExplosion(x, y) {
   tick()
 }
 
-
+// handles explosion effects for selected symbols
 function explodeTiles(count = 5) {
   return new Promise((resolve) => {
     const selected = [...tiles].sort(() => Math.random() - 0.5).slice(0, count)
@@ -478,7 +483,7 @@ function explodeTiles(count = 5) {
   })
 }
 
-
+// main slot spin flow and game state logic
 async function spin() {
   if (spinning) return
 
@@ -561,7 +566,7 @@ function wait(ms) {
 
 spinButton.on('pointertap', spin)
 
-
+// responsive positioning and scaling
 function layout() {
   const w = window.innerWidth
   const h = window.innerHeight
@@ -597,7 +602,7 @@ function layout() {
   }
 }
 
-
+// bootstraps the full game scene
 async function init() {
   drawBackground()
   drawBoard()
