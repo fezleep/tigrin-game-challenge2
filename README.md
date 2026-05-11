@@ -48,3 +48,7 @@ npm run preview
 ## observações
 
 projeto desenvolvido como parte de um desafio técnico com foco em recriar a interface e o fluxo de interação de um jogo estilo slot utilizando pixijs, seguindo os assets e referências fornecidos nos materiais do desafio.
+
+## preview
+
+![preview](./preview.png)
