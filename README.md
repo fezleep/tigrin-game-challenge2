@@ -1,54 +1,34 @@
 # bank robbery slot challenge
 
-desafio técnico desenvolvido utilizando pixijs.
+Cena principal do desafio tecnico usando Vite, JavaScript puro, PixiJS v7 e pixi-spine.
 
-## tecnologias
+## etapa atual
 
-- pixijs v7
-- pixi-spine
-- vite
-- javascript
+- cena principal premium
+- fundo escuro inspirado em vault/banco
+- painel 5x4 com simbolos Spine
+- fox em idle quando houver espaco horizontal
+- HUD inferior com balance, win e bet
+- botao spin com randomizacao simples dos simbolos
 
-## funcionalidades
+## assets Spine validados
 
-- layout de slot 5x4
-- símbolos animados com spine
-- sistema de spin
-- popup de vitória e derrota
-- efeitos de explosão
-- hud animada
-- interface responsiva
-- elementos com animação
-
-## assets e referências
-
-todos os assets utilizados no projeto foram fornecidos junto ao desafio técnico.
-
-a implementação visual, animações, fluxo de interação e estrutura geral foram desenvolvidos com base no vídeo e nos materiais de referência disponibilizados no desafio, utilizando pixijs e spine para recriar uma experiência semelhante através de implementação própria.
+- `Bank/Bank.json` com animacao `Bank`
+- `Safe/Safe.json` com animacao `animation`
+- `Handcuffs/Handcuffs.json` com animacao `animation`
+- `Dynamit/Dynamite.json` com animacao `animation`
+- `Fox/Fox.json` com animacoes `Idle` e `Win`
 
 ## executar localmente
 
 ```bash
 npm install
+npm run check:spine
 npm run dev
 ```
 
-## build de produção
+## build
 
 ```bash
 npm run build
 ```
-
-## preview da build
-
-```bash
-npm run preview
-```
-
-## observações
-
-projeto desenvolvido como parte de um desafio técnico com foco em recriar a interface e o fluxo de interação de um jogo estilo slot utilizando pixijs, seguindo os assets e referências fornecidos nos materiais do desafio.
-
-## preview
-
-![preview](./preview.png)

@@ -1,24 +1,41 @@
-const fs = require('fs')
+const fs = require('node:fs')
+const path = require('node:path')
 
 const targets = [
-  ['Bank', 'Bank'],
-  ['Safe', 'Safe'],
-  ['Handcuffs', 'Handcuffs'],
-  ['Dynamit', 'Dynamite'],
-  ['Fox', 'Fox']
+  {
+    file: path.join('Bank', 'Bank.json'),
+    animations: ['Bank'],
+  },
+  {
+    file: path.join('Safe', 'Safe.json'),
+    animations: ['animation'],
+  },
+  {
+    file: path.join('Handcuffs', 'Handcuffs.json'),
+    animations: ['animation'],
+  },
+  {
+    file: path.join('Dynamit', 'Dynamite.json'),
+    animations: ['animation'],
+  },
+  {
+    file: path.join('Fox', 'Fox.json'),
+    animations: ['Idle', 'Win'],
+  },
 ]
 
-for (const [folder, file] of targets) {
-  const json = JSON.parse(
-    fs.readFileSync(
-      `public/bank/${folder}/${file}.json`,
-      'utf8'
-    )
-  )
+const baseDir = path.join(__dirname, 'public', 'bank')
 
-  console.log('\n===', folder, '===')
+for (const target of targets) {
+  const filePath = path.join(baseDir, target.file)
+  const json = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  const availableAnimations = Object.keys(json.animations || {})
 
-  console.log(
-    Object.keys(json.animations || {})
-  )
+  for (const animation of target.animations) {
+    if (!availableAnimations.includes(animation)) {
+      throw new Error(`Missing animation "${animation}" in ${target.file}`)
+    }
+  }
+
+  console.log(`${target.file}: ${target.animations.join(', ')}`)
 }

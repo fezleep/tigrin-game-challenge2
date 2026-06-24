@@ -6,13 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "check:spine": "node check.cjs",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^8.0.10"
   },
   "dependencies": {
-    "@pixi/spritesheet": "^7.4.3",
     "pixi-spine": "^4.0.6",
     "pixi.js": "^7.4.3"
   }

@@ -10,9 +10,12 @@ body,
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #050508;
+  background: #08070b;
+  font-family: Arial, sans-serif;
 }
 
 canvas {
   display: block;
+  width: 100%;
+  height: 100%;
 }
