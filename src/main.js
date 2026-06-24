@@ -8,6 +8,8 @@ const CELL_SIZE = 104
 const CELL_GAP = 8
 const BOARD_WIDTH = BOARD_COLS * CELL_SIZE + (BOARD_COLS - 1) * CELL_GAP
 const BOARD_HEIGHT = BOARD_ROWS * CELL_SIZE + (BOARD_ROWS - 1) * CELL_GAP
+const REEL_STEP = CELL_SIZE + CELL_GAP
+const SPIN_BET = 100
 
 const SYMBOLS = [
   {
@@ -66,10 +68,17 @@ const state = {
   fox: null,
   hud: {},
   spinButton: {},
+  resultPopup: null,
+  animations: [],
+  isSpinning: false,
+  spinButtonScale: 1,
+  spinButtonPulse: 0,
+  effects: [],
+  effectTimers: [],
   values: {
     balance: 4000,
     win: 0,
-    bet: 100,
+    bet: SPIN_BET,
   },
 }
 
@@ -93,6 +102,7 @@ function setupApplication() {
 
   app.stage.addChild(state.stage)
   state.stage.addChild(state.layers.background, state.layers.game, state.layers.ui)
+  app.ticker.add(updateAnimations)
 
   return app
 }
@@ -158,12 +168,7 @@ function createSymbols() {
   for (let row = 0; row < BOARD_ROWS; row += 1) {
     for (let col = 0; col < BOARD_COLS; col += 1) {
       const config = randomSymbolConfig()
-      const symbol = createSpine(config)
-
-      symbol.position.set(
-        col * (CELL_SIZE + CELL_GAP) + CELL_SIZE / 2,
-        row * (CELL_SIZE + CELL_GAP) + CELL_SIZE / 2 + config.yOffset,
-      )
+      const symbol = createTile(row, col, config)
 
       state.symbolsLayer.addChild(symbol)
       state.tiles.push(symbol)
@@ -214,6 +219,9 @@ function createSpinButton() {
   button.eventMode = 'static'
   button.cursor = 'pointer'
   button.on('pointertap', handleSpin)
+  button.on('pointerdown', pressSpinButton)
+  button.on('pointerup', releaseSpinButton)
+  button.on('pointerupoutside', releaseSpinButton)
 
   button.addChild(body, text)
   state.layers.ui.addChild(button)
@@ -249,6 +257,8 @@ function layout() {
   state.hud.hud.position.set(boardCenterX - hudWidth / 2, hudY)
 
   state.spinButton.button.scale.set(scale)
+  state.spinButtonScale = scale
+  applySpinButtonVisualState()
   state.spinButton.button.position.set(
     Math.min(width - 70 * scale, boardCenterX + hudWidth / 2 + 86 * scale),
     hudY + 37 * scale,
@@ -346,6 +356,18 @@ function createSpine(config) {
   return spine
 }
 
+function createTile(row, col, config) {
+  const symbol = createSpine(config)
+  symbol.config = config
+  symbol.row = row
+  symbol.col = col
+  symbol.baseX = col * REEL_STEP + CELL_SIZE / 2
+  symbol.baseY = row * REEL_STEP + CELL_SIZE / 2 + config.yOffset
+  symbol.baseScale = config.scale
+  symbol.position.set(symbol.baseX, symbol.baseY)
+  return symbol
+}
+
 function clearSymbols() {
   const previousTiles = state.symbolsLayer.removeChildren()
   previousTiles.forEach((tile) => tile.destroy())
@@ -357,11 +379,400 @@ function randomSymbolConfig() {
 }
 
 function handleSpin() {
-  state.values.win = Math.random() > 0.55 ? state.values.bet * (Math.floor(Math.random() * 5) + 1) : 0
+  spin()
+}
+
+async function spin() {
+  if (state.isSpinning) {
+    return
+  }
+
+  state.isSpinning = true
+  state.values.win = 0
+  updateHudValues()
+  hideResultPopup()
+  clearEffects()
+  setSpinButtonEnabled(false)
+
+  const didWin = Math.random() > 0.55
+  const winMultiplier = didWin ? Math.floor(Math.random() * 5) + 1 : 0
+  const finalGrid = createFinalGrid(didWin)
+  const columnAnimations = []
+
+  if (state.fox) {
+    state.fox.state.setAnimation(0, 'Idle', true)
+  }
+
+  for (let col = 0; col < BOARD_COLS; col += 1) {
+    const delay = col * 120
+    columnAnimations.push(wait(delay).then(() => animateColumn(col, finalGrid[col])))
+  }
+
+  await Promise.all(columnAnimations)
+
   state.values.balance -= state.values.bet
+  state.values.win = state.values.bet * winMultiplier
   state.values.balance += state.values.win
   updateHudValues()
-  createSymbols()
+
+  if (didWin) {
+    if (state.fox) {
+      state.fox.state.setAnimation(0, 'Win', false)
+      state.fox.state.addAnimation(0, 'Idle', true, 0)
+    }
+    highlightWinningSymbols(finalGrid.winningTiles)
+    showResultPopup('BIG WIN', state.values.win, true)
+  } else {
+    shakeBoard()
+    showResultPopup('NO WIN', 0, false)
+  }
+
+  resetSpinState()
+}
+
+function animateColumn(col, finalConfigs) {
+  const duration = 720 + col * 145
+  const lastSwap = { value: 0 }
+
+  return animate(duration, (progress, elapsed) => {
+    const eased = easeOutCubic(progress)
+    const speed = 920 * (1 - eased) + 180
+    const roll = (elapsed / 1000) * speed
+
+    if (elapsed - lastSwap.value > 72 && progress < 0.82) {
+      swapColumnSymbols(col)
+      lastSwap.value = elapsed
+    }
+
+    for (let row = 0; row < BOARD_ROWS; row += 1) {
+      const tile = getTile(row, col)
+      const wrapped = (roll + row * REEL_STEP) % (BOARD_HEIGHT + REEL_STEP)
+      tile.y = tile.baseY + wrapped - REEL_STEP
+      tile.alpha = 0.72 + 0.28 * eased
+    }
+  }).then(() => {
+    for (let row = 0; row < BOARD_ROWS; row += 1) {
+      replaceTile(row, col, finalConfigs[row])
+    }
+
+    return animate(220, (progress) => {
+      const bounce = Math.sin(progress * Math.PI) * 14 * (1 - progress)
+      for (let row = 0; row < BOARD_ROWS; row += 1) {
+        const tile = getTile(row, col)
+        tile.y = tile.baseY - bounce
+        tile.alpha = 1
+      }
+    })
+  })
+}
+
+function highlightWinningSymbols(winningTiles) {
+  winningTiles.forEach(({ row, col }, index) => {
+    const tile = getTile(row, col)
+    const glow = new PIXI.Graphics()
+
+    glow.blendMode = PIXI.BLEND_MODES.ADD
+    glow.beginFill(0xfff1a8, 0.5)
+    glow.drawCircle(tile.baseX, tile.baseY - tile.config.yOffset, 46)
+    glow.endFill()
+    state.symbolsLayer.addChildAt(glow, Math.max(0, state.symbolsLayer.getChildIndex(tile)))
+    state.effects.push(glow)
+
+    animate(900, (progress) => {
+      if (glow.destroyed || tile.destroyed) {
+        return
+      }
+
+      const pulse = Math.sin(progress * Math.PI * 4)
+      const scale = tile.baseScale * (1 + 0.12 * Math.max(0, pulse))
+      tile.scale.set(scale)
+      glow.alpha = (1 - progress) * (0.6 + Math.max(0, pulse) * 0.35)
+      glow.scale.set(1 + progress * 0.55)
+    }, () => {
+      if (!tile.destroyed) {
+        tile.scale.set(tile.baseScale)
+      }
+      destroyEffect(glow)
+    })
+
+    const timer = setTimeout(() => createExplosion(tile.baseX, tile.baseY - tile.config.yOffset), index * 70)
+    state.effectTimers.push(timer)
+  })
+}
+
+function createExplosion(x, y) {
+  const particles = []
+
+  for (let index = 0; index < 14; index += 1) {
+    const particle = new PIXI.Graphics()
+    const angle = (Math.PI * 2 * index) / 14
+    const speed = 28 + Math.random() * 34
+
+    particle.beginFill(index % 2 ? 0xffc247 : 0xffffff, 0.95)
+    particle.drawCircle(0, 0, 2 + Math.random() * 2.5)
+    particle.endFill()
+    particle.position.set(x, y)
+    particle.velocity = {
+      x: Math.cos(angle) * speed,
+      y: Math.sin(angle) * speed - 18,
+    }
+
+    particles.push(particle)
+    state.effects.push(particle)
+    state.symbolsLayer.addChild(particle)
+  }
+
+  animate(620, (progress) => {
+    particles.forEach((particle) => {
+      if (particle.destroyed) {
+        return
+      }
+
+      particle.x = x + particle.velocity.x * progress
+      particle.y = y + particle.velocity.y * progress + 28 * progress * progress
+      particle.alpha = 1 - progress
+      particle.scale.set(1 + progress * 0.8)
+    })
+  }, () => {
+    particles.forEach((particle) => destroyEffect(particle))
+  })
+}
+
+function showResultPopup(title, value, isBigWin) {
+  hideResultPopup()
+
+  const popup = new PIXI.Container()
+  const overlay = new PIXI.Graphics()
+  const panel = new PIXI.Graphics()
+  const titleText = createText(title, isBigWin ? 70 : 42, isBigWin ? 0xffc247 : 0xffffff, 7)
+  const valueText = createText(formatMoney(value), isBigWin ? 46 : 30, isBigWin ? 0x40f078 : 0xff3b35, 5)
+  const { width, height } = state.app.screen
+
+  overlay.beginFill(0x000000, isBigWin ? 0.68 : 0.42)
+  overlay.drawRect(0, 0, width, height)
+  overlay.endFill()
+
+  panel.beginFill(0x120909, isBigWin ? 0.96 : 0.88)
+  panel.drawRoundedRect(-220, -92, 440, isBigWin ? 184 : 144, 8)
+  panel.endFill()
+  panel.lineStyle(4, isBigWin ? 0xffc247 : 0x82181a, isBigWin ? 0.95 : 0.75)
+  panel.drawRoundedRect(-220, -92, 440, isBigWin ? 184 : 144, 8)
+
+  titleText.anchor.set(0.5)
+  valueText.anchor.set(0.5)
+  titleText.position.set(0, isBigWin ? -22 : -16)
+  valueText.position.set(0, isBigWin ? 48 : 38)
+
+  popup.addChild(overlay, panel, titleText, valueText)
+  popup.position.set(width / 2, height / 2)
+  overlay.position.set(-width / 2, -height / 2)
+  popup.eventMode = 'static'
+  popup.cursor = 'pointer'
+  popup.on('pointertap', hideResultPopup)
+  state.layers.ui.addChild(popup)
+  state.resultPopup = popup
+
+  animate(220, (progress) => {
+    if (popup.destroyed) {
+      return
+    }
+
+    popup.alpha = progress
+    popup.scale.set(0.88 + 0.12 * easeOutBack(progress))
+  })
+}
+
+function resetSpinState() {
+  state.isSpinning = false
+  setSpinButtonEnabled(true)
+}
+
+function createFinalGrid(didWin) {
+  const grid = []
+  const winningTiles = []
+  const winningRow = Math.floor(Math.random() * BOARD_ROWS)
+  const winningConfig = randomSymbolConfig()
+
+  for (let col = 0; col < BOARD_COLS; col += 1) {
+    grid[col] = []
+    for (let row = 0; row < BOARD_ROWS; row += 1) {
+      grid[col][row] = didWin && row === winningRow ? winningConfig : randomSymbolConfig()
+    }
+
+    if (didWin) {
+      winningTiles.push({ row: winningRow, col })
+    }
+  }
+
+  grid.winningTiles = winningTiles
+  return grid
+}
+
+function swapColumnSymbols(col) {
+  for (let row = 0; row < BOARD_ROWS; row += 1) {
+    const previous = getTile(row, col)
+    const y = previous.y
+    const alpha = previous.alpha
+    const next = replaceTile(row, col, randomSymbolConfig())
+
+    next.y = y
+    next.alpha = alpha
+  }
+}
+
+function replaceTile(row, col, config) {
+  const index = tileIndex(row, col)
+  const previous = state.tiles[index]
+  const childIndex = state.symbolsLayer.getChildIndex(previous)
+  const next = createTile(row, col, config)
+
+  state.symbolsLayer.removeChild(previous)
+  previous.destroy()
+  state.symbolsLayer.addChildAt(next, childIndex)
+  state.tiles[index] = next
+  return next
+}
+
+function getTile(row, col) {
+  return state.tiles[tileIndex(row, col)]
+}
+
+function tileIndex(row, col) {
+  return row * BOARD_COLS + col
+}
+
+function setSpinButtonEnabled(enabled) {
+  const { button, text } = state.spinButton
+
+  button.eventMode = enabled ? 'static' : 'none'
+  button.cursor = enabled ? 'pointer' : 'default'
+  button.alpha = enabled ? 1 : 0.62
+  text.text = enabled ? 'SPIN' : '...'
+  applySpinButtonVisualState()
+}
+
+function pressSpinButton() {
+  if (state.isSpinning) {
+    return
+  }
+
+  state.spinButtonPressed = true
+  applySpinButtonVisualState()
+}
+
+function releaseSpinButton() {
+  state.spinButtonPressed = false
+  applySpinButtonVisualState()
+}
+
+function applySpinButtonVisualState() {
+  const { button } = state.spinButton
+
+  if (!button) {
+    return
+  }
+
+  const pulse = state.isSpinning ? 0 : Math.sin(state.spinButtonPulse) * 0.035
+  const press = state.spinButtonPressed ? 0.92 : 1
+  button.scale.set(state.spinButtonScale * (1 + pulse) * press)
+}
+
+function shakeBoard() {
+  const startX = state.board.x
+
+  animate(360, (progress) => {
+    const shake = Math.sin(progress * Math.PI * 8) * (1 - progress) * 7
+    state.board.x = startX + shake
+  }, () => {
+    state.board.x = startX
+  })
+}
+
+function hideResultPopup() {
+  if (!state.resultPopup) {
+    return
+  }
+
+  state.resultPopup.destroy({ children: true })
+  state.resultPopup = null
+}
+
+function clearEffects() {
+  state.effectTimers.forEach((timer) => clearTimeout(timer))
+  state.effectTimers = []
+
+  state.effects.forEach((effect) => {
+    if (!effect.destroyed) {
+      effect.destroy()
+    }
+  })
+  state.effects = []
+
+  state.tiles.forEach((tile) => {
+    if (!tile.destroyed) {
+      tile.alpha = 1
+      tile.scale.set(tile.baseScale)
+      tile.filters = null
+    }
+  })
+}
+
+function destroyEffect(effect) {
+  if (!effect.destroyed) {
+    effect.destroy()
+  }
+
+  state.effects = state.effects.filter((item) => item !== effect)
+}
+
+function wait(duration) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, duration)
+  })
+}
+
+function animate(duration, onUpdate, onComplete) {
+  return new Promise((resolve) => {
+    state.animations.push({
+      start: performance.now(),
+      duration,
+      onUpdate,
+      onComplete,
+      resolve,
+    })
+  })
+}
+
+function updateAnimations() {
+  const now = performance.now()
+
+  state.spinButtonPulse += state.app?.ticker.deltaMS / 1000 || 0.016
+  applySpinButtonVisualState()
+
+  for (let index = state.animations.length - 1; index >= 0; index -= 1) {
+    const animation = state.animations[index]
+    const elapsed = now - animation.start
+    const progress = Math.min(1, elapsed / animation.duration)
+
+    animation.onUpdate(progress, elapsed)
+
+    if (progress >= 1) {
+      state.animations.splice(index, 1)
+      animation.onComplete?.()
+      animation.resolve()
+    }
+  }
+}
+
+function easeOutCubic(value) {
+  return 1 - Math.pow(1 - value, 3)
+}
+
+function easeOutBack(value) {
+  const c1 = 1.70158
+  const c3 = c1 + 1
+
+  return 1 + c3 * Math.pow(value - 1, 3) + c1 * Math.pow(value - 1, 2)
 }
 
 function drawBackground() {
